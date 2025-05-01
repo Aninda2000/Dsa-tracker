@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const authRoutes = require("./routes/auth"); // Assuming auth routes
-const progressRoutes = require("./routes/progress"); // Assuming progress routes
+const authRoutes = require("./routes/auth"); 
+const progressRoutes = require("./routes/progress");
 const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 const helmet = require('helmet');
@@ -13,8 +13,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: 'http://localhost:3000', // or '*' for testing only
-  credentials: true // if you're sending cookies
+  origin: 'http://localhost:3000', 
+  credentials: true 
 }));
 app.use(express.json());
 app.use(helmet());

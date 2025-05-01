@@ -1,4 +1,3 @@
-// models/Progress.js
 const mongoose = require('mongoose');
 
 const progressSchema = new mongoose.Schema({
@@ -6,7 +5,7 @@ const progressSchema = new mongoose.Schema({
   topicId: { type: String, required: true },
   problems: {
     type: Map,
-    of: Boolean, // true or false based on whether the problem is checked
+    of: Boolean,
     default: {}
   }
 });

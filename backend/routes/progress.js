@@ -3,7 +3,6 @@ const router = express.Router();
 const Progress = require('../models/Progress');
 const authMiddleware = require('../middlewares/authMiddleware');
 
-// Save or update progress for a specific topic and problem
 router.post('/save', authMiddleware, async (req, res) => {
   const { topicId, problemId, checked } = req.body;
   try {
@@ -22,7 +21,6 @@ router.post('/save', authMiddleware, async (req, res) => {
   }
 });
 
-// Fetch progress for a specific topic
 router.get('/:topicId', authMiddleware, async (req, res) => {
   try {
     const progress = await Progress.findOne({ userId: req.user.userId, topicId: req.params.topicId });
