@@ -25,7 +25,11 @@ app.use(
 );
 
 app.use(express.json());
-app.use(helmet());
+app.use(
+  helmet({
+    hsts: false, // Disable Strict-Transport-Security
+  })
+);
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -42,16 +46,17 @@ if (process.env.NODE_ENV === "production") {
 
   app.use((req, res, next) => {
     if (
-      req.method === "GET" &&
-      !req.path.startsWith("/api") &&
-      !req.path.includes(".")
+      req.method === 'GET' &&
+      !req.path.startsWith('/api') &&
+      !req.path.includes('.')
     ) {
-      res.sendFile(path.join(buildPath, "index.html"));
+      res.sendFile(path.join(buildPath, 'index.html'));
     } else {
       next();
     }
   });
 }
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
