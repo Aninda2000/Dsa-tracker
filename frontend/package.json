@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://13.60.221.49:5000",
+  "homepage": "/",
   "proxy": "http://13.60.221.49:5000",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
